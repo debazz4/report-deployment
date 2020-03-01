@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+        <div class="top">
+                <div class="lead">
+                    <div class="add">
+                        <a href="{% url 'rp_app:table-list' %}" role="button" style="margin-right:70px"><i class='fas fa-home' style='font-size:24px;color:black'></i></a>
+                        <a href="{% url 'rp_app:new-record' %}" role="button"><i class='fas fa-file-upload' style='font-size:24px;color:black'></i></a>
+                    </div>
+                        
+                    <div class="add2">
+                        <a href="{% url 'account_logout' %}" role="button">{{ user }}, <i class="fa fa-power-off" style="font-size:24px;color:red"></i></a>
+                    </div>
+                </div>
+        </div>
+</div>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Results for {{ request.GET.q }}:</h1>
+    </div>
+    
+    
+    <br/>
+    <form action="{% url 'rp_app:search' %}" method="GET" value="{{request.GET.q}}">
+    <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search records" class="form-control col-md-3"/>
+    <input type="submit" name="submit" value="" style="border: 1px solid black"/>
+    </form>
+    
+    
+    {% if submitbutton == '' and request.GET.q != '' %}
+    {% if results %}
+    <br>
+    
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100 ver5 m-b-110">
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th class="cell100 column1">CR:NO</th>
+                                    <th class="cell100 column2">CER:NO</th>
+                                    <th class="cell100 column3">COMPLAINT(S) NAME</th>
+                                    <th class="cell100 column4">SUSPECT(S) NAME</th>
+                                    <th class="cell100 column5">OFFENCE(S)</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    
+                    <div class="table100-body js-pscroll">
+                        <table>
+                            <tbody>
+                                {% for result in results %}
+                                <tr class="row100 body" data-href="{% url 'rp_app:single-record' pk=result.pk %}">
+                                    <td class="cell100 column1"><a href="{% url 'rp_app:single-record' pk=result.pk %}">{{ result.cr_no }}</a></td>
+                                    <td class="cell100 column2"><a href="{% url 'rp_app:single-record' pk=result.pk %}">{{ result.cer_no }}</td>
+                                    <td class="cell100 column3"><a href="{% url 'rp_app:single-record' pk=result.pk %}">{{ result.complaint_name }}</a></td>
+                                    <td class="cell100 column4"><a href="{% url 'rp_app:single-record' pk=result.pk %}">{{ result.suspect_name }}</a></td>
+                                    <td class="cell100 column5"><a href="{% url 'rp_app:single-record' pk=result.pk %}">{{ result.offence }}</a></td>                               
+                                </tr>
+                                {% endfor %}
+    
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% else %}
+No search results for this query
+{% endif %}
+{% endif %}
+</div>
+
+
+{% endblock content %}
+{% block extra_scripts %}
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const rows = document.querySelectorAll("tr[data-href]");
+			
+			rows.forEach(row => {
+				row.addEventListener("click", () => {
+					window.location.href = row.dataset.href;
+				})
+			})
+		});
+	</script>
+{% endblock %}

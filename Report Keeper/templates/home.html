@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="jumbotron col-md-6 welcome">
+        <h1 class="display-4 ">RECORD KEEPER</h1>
+        <hr class="my-4">
+        <p>You are still logged in!</p>
+        <p class="lead pos-cen">
+          <a class="btn btn-primary btn-lg" href="{% url 'rp_app:table-list' %}" role="button">Continue</a>
+        </p>
+        <p class="lead pos-cens">
+                <a class="btn btn-primary btn-lg" href="{% url 'account_logout' %}" role="button">Sign out</a>
+        </p>
+    </div>
+{% else %}
+<div class="jumbotron col-md-6 welcome">
+    <h1 class="display-4 ">RECORD KEEPER</h1>
+    <hr class="my-4"> 
+    <p class="lead pos-cen">
+      <a class="btn btn-primary btn-lg" href="{% url 'account_login' %}" role="button">Login</a>
+    </p>
+</div>
+{% endif %}
+{% endblock %}

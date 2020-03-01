@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<div class="top">
+		<div class="lead">
+			<div class="add">
+				<a href="{% url 'rp_app:table-list' %}" role="button" class="m-r-100"><i class='fas fa-home' style='font-size:24px;color:black'></i></a>
+				<a href="{% url 'rp_app:new-record' %}" role="button"><i class='fas fa-file-upload' style='font-size:24px;color:black'></i></a>
+			</div>
+						
+			<div class="add2">
+				<a href="{% url 'account_logout' %}" role="button">{{ user }}, <i class="fa fa-power-off" style="font-size:24px;color:red"></i></a>
+			</div>
+        </div>
+    </div>
+</div>
+<!-- <div class="top">
+    <p class="lead">
+        <p class="add"><a class="btn btn-primary" href="{% url 'rp_app:table-list' %}" role="button">Back</a></p>
+        <p class="add2"><a href="{% url 'account_logout' %}" role="button"><i class="fa fa-power-off" style="font-size:24px;color:red"></i><b>Logout</b></a></p>
+    </p>
+</div> -->
+
+<div class="jumbotron">
+    <h4> Record : {{single.cr_no}}</h4>
+</div>
+
+<div class="container">
+    <section class="mb-4">
+      <div class="row wow fadeIn">
+        <div class='col-6 offset-3'>
+                    <p>CR:No. : {{ single.cr_no }}</p>
+                    <p>CER:No. : {{ single.cer_no }}</p>
+                    <p>DATE RECIEVED : {{ single.date_recieved }}</p>
+                    <p>DATE ASSIGNED : {{ single.date_assigned }}</p>
+                    <hr>
+                    <h6>COMPALINT(S) PARTICULARS : </h6>
+                    <hr>
+                    <p><b>NAME : {{ single.complaint_name }}</b></p>
+                    <p>ADDRESS : {{ single.complaint_address }}</p>
+                    <p>STATE OF ORIGIN : {{ single.complaint_state_of_origin }}</p>
+                    <p>LGA : {{ single.complaint_LGA }}</p>
+                    <p>SEX : {{ single.get_complaint_sex_display }}</p>
+                    <p>AGE : {{ single.complaint_age}} </p>
+                    <hr>
+                    <h6>SUSPECT(S) PARTICULARS :</h6>
+                    <hr>
+                    <p><b>NAME : {{ single.suspect_name}}</b></p>
+                    <p>ADDRESS : {{ single.suspect_address}}</p>
+                    <p>STATE OF ORIGIN : {{ single.suspect_state_of_origin }}</p>
+                    <p>LGA : {{ single.suspect_LGA }}</p>
+                    <p>SEX : {{ single.get_suspect_sex_display }}</p>
+                    <p>AGE : {{ single.suspect_age }}</p>
+                    <hr>
+                    <p>OFFENCE(S) : {{ single.offence }} </p>
+                    <hr>
+                    <p>AMOUNT INVOLVED (NAIRA) : {{ single.amount_involved_naira }}</p>
+                    <p>AMOUNT INVOLVED (DOLLAR) : {{ single.amount_involved_dollar }}</p>
+                    <p>CFA : {{ single.cfa_involved }}</p>
+                    <p>OTHERS : {{ single.others_involved }}</p>
+                    <hr>
+                    <p>AMOUNT RECIEVED (NAIRA) : {{ single.amount_recieved_naira }}</p>
+                    <p>AMOUNT RECIEVED (DOLLAR) : {{ single.amount_recieved_dollar }}</p>
+                    <p>CFA : {{ single.cfa_recieved }}</p>
+                    <p>OTHERS : {{ single.others_recieved }}</p>
+                    <hr>
+                    <p>IO/TEAM : {{ single.team }}</p>
+                    <hr>
+                    <p>STATUS : {{ single.status }}</p>
+                    <hr>
+                    <p>DATE SENT TO LEGAL : {{ single.date_sent_to_legal }}</p>
+
+                    <div class="m-t-10">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'rp_app:single-record-edit' pk=single.pk %}">
+                                <i class='fas fa-edit' style='font-size:36px; color: black'></i>
+                            </a>
+                            <a href="{% url 'rp_app:single-record-delete' pk=single.pk %}">
+                                    <i class="material-icons" style="font-size:36px;color:red">delete_forever</i>
+                                </a>
+                            {% endif %}
+                    </div>
+                   
+                    </div>
+                </div>
+            </section>
+        </div>     
+
+{% endblock %}
