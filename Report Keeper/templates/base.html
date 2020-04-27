@@ -6,15 +6,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<!-- fonts -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}"> -->
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
 <!--===============================================================================================-->
@@ -22,60 +22,15 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
 <!--===============================================================================================-->
-	<!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> -->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 <!--===============================================================================================-->
-<style>
-.welcome{
-	margin: 200px auto;
-}
-.pos-cen{
-	margin: auto;
-	width: 120px;
-	text-align: center
-}
-.h1.pos{
-	width: 1000px;
-	margin: auto;
-}
-.pos-cens{
-	width: 110px;
-	text-align: center;
-	margin: 5px auto;
-}
-.add{
-	margin-left: 30px;
-	width: 300px;
-	float: left
-}
-.add2{
-	margin-right: 10px;
-	width: 100px;
-	float: right;
-	
-}
-.top{
-	height:50px;
-	padding:5px;
-	
-}
-.form-control{
-	border: 1px solid rgb(238, 238, blue238) !important;
-	box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
-	border-radius: 10px;
-	height: var (--searchbox-height)
-}
-#filtersubmit {
-    position: relative;
-    z-index: 1;
-    left: -25px;
-    top: 1px;
-    color: #7B7B7B;
-    cursor:pointer;
-    width: 0;
-}
-</style>
+<!-- extra css file -->
+<link rel="stylesheet" href="{% static 'css/extra.css' %}">
+
+<!-- all js for font awesome -->
+<script src="{% static 'js/all.js' %}"></script>
+
 </head>
 <body>
 	
@@ -128,8 +83,9 @@ setTimeout(function(){
 	</script>
 	
 <!--===============================================================================================-->
+<!-- main js -->
 	<script src="{% static 'js/main.js' %}"></script>
-	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
 
 
 </body>

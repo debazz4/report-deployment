@@ -1,8 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- container for header icons -->
 <div class="container">
-	<div class="top">
+    <div class="row">
+		<div class="col-3 mx-5 my-2">
+			<a href="{% url 'rp_app:table-list' %}" role="button"><i class='fas fa-home fa-2x' ></i>
+            <p>Home</p>
+            </a>
+		</div>
+		<div class="col-3 my-2">
+			<a href="{% url 'rp_app:new-record' %}" role="button"><i class='fas fa-file-upload fa-2x'></i>
+            <p>Add</p>
+            </a>
+		</div>
+		<div class="col-sm-3 col-md-4 my-2">
+			<div class="d-flex justify-content-end">
+				<a href="{% url 'account_logout' %}" role="button">{{ user }}, <i class="fa fa-power-off fa-2x" style="color:red"></i></a>
+			</div>
+			<div class="d-flex justify-content-end">
+				<a href="{% url 'account_logout' %}"><p>Logout</p></a>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="top">
 		<div class="lead">
 			<div class="add">
 				<a href="{% url 'rp_app:table-list' %}" role="button" class="m-r-100"><i class='fas fa-home' style='font-size:24px;color:black'></i></a>
@@ -13,15 +34,11 @@
 				<a href="{% url 'account_logout' %}" role="button">{{ user }}, <i class="fa fa-power-off" style="font-size:24px;color:red"></i></a>
 			</div>
         </div>
-    </div>
+    </div> -->
 </div>
-<!-- <div class="top">
-    <p class="lead">
-        <p class="add"><a class="btn btn-primary" href="{% url 'rp_app:table-list' %}" role="button">Back</a></p>
-        <p class="add2"><a href="{% url 'account_logout' %}" role="button"><i class="fa fa-power-off" style="font-size:24px;color:red"></i><b>Logout</b></a></p>
-    </p>
-</div> -->
+<!-- end of container -->
 
+<!-- single record -->
 <div class="jumbotron">
     <h4> Record : {{single.cr_no}}</h4>
 </div>
@@ -86,5 +103,6 @@
                 </div>
             </section>
         </div>     
+<!-- end of single record -->
 
 {% endblock %}
