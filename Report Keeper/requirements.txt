@@ -8,7 +8,7 @@ django-allauth==0.41.0
 django-bootstrap-form==3.4
 django-bootstrap4==1.1.1
 django-crispy-forms==1.8.1
-django-debug-toolbar==2.2
+django-debug-toolbar==2.2.1
 idna==2.8
 oauthlib==3.1.0
 python3-openid==3.1.0
